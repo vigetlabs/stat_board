@@ -1,0 +1,16 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th colspan="2"><%= title %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% StatBoard.models.each do |model| %>
+      <tr>
+        <td class="span6"><%= model.to_s.pluralize %></td>
+        <td class="span6"><%= scope[model].count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

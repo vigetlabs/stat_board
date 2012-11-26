@@ -3,12 +3,19 @@
 <head>
   <title>StatBoard</title>
   <%= stylesheet_link_tag    "stat_board/application", :media => "all" %>
+  <%= stylesheet_link_tag    "stat_board/bootstrap",   :media => "all" %>
   <%= javascript_include_tag "stat_board/application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <div class="page-header">
+    <h1>StatBoard</h1>
+  </div>
+
+  <%= yield %>
+</div>
 
 </body>
 </html>
