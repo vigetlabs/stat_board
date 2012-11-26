@@ -1,5 +1,5 @@
 require "stat_board/engine"
 
 module StatBoard
-  mattr_accessor :models
+  mattr_accessor :models, :title
 end
