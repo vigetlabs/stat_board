@@ -1,0 +1,34 @@
+<h1>StatBoard</h1>
+
+<table>
+  <caption>Overall</caption>
+
+  <% StatBoard.models.each do |model| %>
+    <tr>
+      <td><%= model.to_s.pluralize %></td>
+      <td><%= model.count %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <caption>This Month</caption>
+
+  <% StatBoard.models.each do |model| %>
+    <tr>
+      <td><%= model.to_s.pluralize %></td>
+      <td><%= model.where("CREATED_AT > ?", 1.month.ago).count %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <caption>This Week</caption>
+
+  <% StatBoard.models.each do |model| %>
+    <tr>
+      <td><%= model.to_s.pluralize %></td>
+      <td><%= model.where("CREATED_AT > ?", 1.week.ago).count %></td>
+    </tr>
+  <% end %>
+</table>
