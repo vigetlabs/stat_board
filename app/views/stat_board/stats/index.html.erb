@@ -1,4 +1,4 @@
-<div>
+<% if StatBoard.models %>
   <%= render "chart",
     :title => "Overall",
     :scope => lambda { |klass| klass } %>
@@ -10,4 +10,7 @@
   <%= render "chart",
     :title => "This Week",
     :scope => lambda { |klass| klass.where(["created_at > ?", 1.week.ago]) } %>
-</div>
+<% else %>
+  Please specify some models by setting <code>StatBoard.models</code>
+  (in <code>config/initializers/stat_board.rb</code>, for example).
+<% end %>
