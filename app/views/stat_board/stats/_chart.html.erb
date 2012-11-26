@@ -1,16 +1,18 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th colspan="2"><%= title %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% StatBoard.models.each do |model| %>
+<div class="span4">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td class="span6"><%= model.to_s.pluralize %></td>
-        <td class="span6"><%= scope[model].count %></td>
+        <th colspan="2"><%= title %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% StatBoard.models.each do |model| %>
+        <tr>
+          <td class="span2"><%= model.to_s.pluralize %></td>
+          <td class="span2"><%= scope[model].count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
