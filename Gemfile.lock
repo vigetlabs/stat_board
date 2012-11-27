@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     stat_board (0.0.1)
-      rails (~> 3.2.5)
+      rails (~> 3.2)
 
 GEM
   remote: http://rubygems.org/
