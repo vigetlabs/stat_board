@@ -1,0 +1,1 @@
+StatBoard.models = [Post]
