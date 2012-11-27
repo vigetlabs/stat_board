@@ -72,5 +72,45 @@ describe "a user visiting the stat board" do
       visit "/stats"
       page.should have_content("App Stats")
     end
+
+    after do
+      StatBoard.title = nil
+    end
+  end
+
+  describe "with auth credentials" do
+    before do
+      StatBoard.username = "user"
+      StatBoard.password = "pass"
+    end
+
+    it "gets a request for authentication if none provided" do
+      visit "/stats"
+      page.status_code.should == 401
+    end
+
+    it "gets a request for authentication if bad details provided" do
+      page.driver.browser.authorize("user", "wrong")
+      visit "/stats"
+      page.status_code.should == 401
+    end
+
+    it "sees the stat board if correct details provided" do
+      page.driver.browser.authorize("user", "pass")
+      visit "/stats"
+      puts page.body
+      page.should have_content("StatBoard")
+    end
+
+    it "does not need details if only partial credentials specified" do
+      StatBoard.password = nil
+      visit "/stats"
+      page.should have_content("StatBoard")
+    end
+
+    after do
+      StatBoard.username = nil
+      StatBoard.password = nil
+    end
   end
 end
