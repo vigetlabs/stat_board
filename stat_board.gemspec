@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/vigetlabs/stat_board"
   s.summary     = "Simple dashboard of records created this week, this month, and all time, mountable as a Rails Engine."
   s.description = "Simple dashboard of records created this week, this month, and all time, mountable as a Rails Engine."
+  s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
