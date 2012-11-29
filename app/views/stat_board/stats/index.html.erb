@@ -1,16 +1,6 @@
 <% if StatBoard.models %>
   <div class="row">
-    <%= render "chart",
-      :title => "Overall",
-      :scope => lambda { |klass| klass } %>
-
-    <%= render "chart",
-      :title => "This Month",
-      :scope => lambda { |klass| klass.where(["created_at > ?", 1.month.ago]) } %>
-
-    <%= render "chart",
-      :title => "This Week",
-      :scope => lambda { |klass| klass.where(["created_at > ?", 1.week.ago]) } %>
+    <%= render :partial => "chart", :collection => @reports, :as => :report %>
   </div>
 <% else %>
   Please specify some models by setting <code>StatBoard.models</code>

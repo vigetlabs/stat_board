@@ -1,8 +1,8 @@
-<div id="<%= title.downcase.gsub(" ", "-") %>" class="span4">
+<div id="<%= report.slug %>" class="span4">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th colspan="2"><%= title %></th>
+        <th colspan="2"><%= report.name %></th>
       </tr>
     </thead>
 
@@ -10,7 +10,7 @@
       <% StatBoard.models.each do |model| %>
         <tr>
           <td class="span2"><%= model.to_s.pluralize %></td>
-          <td class="span2"><%= scope[model].count %></td>
+          <td class="span2"><%= report.count(model) %></td>
         </tr>
       <% end %>
     </tbody>

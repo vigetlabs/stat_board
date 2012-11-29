@@ -98,7 +98,6 @@ describe "a user visiting the stat board" do
     it "sees the stat board if correct details provided" do
       page.driver.browser.authorize("user", "pass")
       visit "/stats"
-      puts page.body
       page.should have_content("StatBoard")
     end
 
