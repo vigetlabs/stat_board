@@ -5,8 +5,12 @@ module StatBoard
         # define in subclass
       end
 
-      def scope
-        # define in subclass
+      def scope(model)
+        if model.is_a?(String)
+          model.constantize
+        else
+          model
+        end
       end
 
       def slug

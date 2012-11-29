@@ -20,6 +20,8 @@ A simple dashboard of records created this week, this month, and all time, mount
 
         StatBoard.models = [User, Post, Comment]
 
+Models can also be listed as strings if you encounter any loading order issues.
+
 ## Additonal Configuration
 
 In `config/initializers/stat_board.rb`:

@@ -4,10 +4,6 @@ module StatBoard
       def name
         "Overall"
       end
-
-      def scope(model)
-        model
-      end
     end
   end
 end

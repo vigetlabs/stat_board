@@ -6,7 +6,7 @@ module StatBoard
       end
 
       def scope(model)
-        model.where(["created_at > ?", 1.week.ago])
+        super.where(["created_at > ?", 1.week.ago])
       end
     end
   end

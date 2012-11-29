@@ -112,4 +112,22 @@ describe "a user visiting the stat board" do
       StatBoard.password = nil
     end
   end
+
+  describe "with models listed as strings" do
+    before do
+      StatBoard.models = %w(Post)
+      Post.create
+      visit "/stats"
+    end
+
+    it "loads and queries them appropriately" do
+      within "div#overall" do
+        page.should have_content("1")
+      end
+    end
+
+    after do
+      StatBoard.models = [Post]
+    end
+  end
 end
