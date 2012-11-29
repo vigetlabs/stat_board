@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stat_board (0.1.0)
+    stat_board (0.1.2)
       rails (~> 3.2)
 
 GEM
