@@ -35,6 +35,13 @@ In `config/initializers/stat_board.rb`:
         StatBoard.username = "user"
         StatBoard.password = "pass"
 
+## Issues
+
+  * Models can be specified as strings rather than constants
+    if you encounter loading order issues.
+  * If you're using the Asset Pipeline, you'll need to add
+    `stat_board/bootstrap.css` to your precompile paths.
+
 ## Contributing
 
 Happily accepting contributions to improve StatBoard. To contribute, fork, add your thing, add some specs, and send a pleasantly worded pull request.
