@@ -23,13 +23,13 @@ describe "a user visiting the stat board" do
     end
 
     it "sees that no posts were created this month" do
-      within "div#this-month" do
+      within "div#last-30-days" do
         page.should have_content("0")
       end
     end
 
     it "sees that no posts were created this week" do
-      within "div#this-week" do
+      within "div#last-7-days" do
         page.should have_content("0")
       end
     end
@@ -51,13 +51,13 @@ describe "a user visiting the stat board" do
     end
 
     it "sees that 2 posts were created this month" do
-      within "div#this-month" do
+      within "div#last-30-days" do
         page.should have_content("2")
       end
     end
 
     it "sees that 1 post was created this week" do
-      within "div#this-week" do
+      within "div#last-7-days" do
         page.should have_content("1")
       end
     end

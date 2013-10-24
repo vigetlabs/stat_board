@@ -2,7 +2,7 @@ module StatBoard
   module Reports
     class WeeklyReport < Report
       def name
-        "This Week"
+        "Last 7 days"
       end
 
       def scope(model)
