@@ -4,7 +4,7 @@ describe "a user visiting the stat board" do
   it "sees the dashboard" do
     visit "/stats"
     page.should have_content("StatBoard")
-  end  
+  end
 
   it "sees the specified models (post)" do
     visit "/stats"
