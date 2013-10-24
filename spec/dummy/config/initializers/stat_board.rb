@@ -1,1 +1,1 @@
-StatBoard.models = %w(Post)
+StatBoard.models = %w(Post User)

@@ -1,0 +1,32 @@
+<div id="container"></div>
+
+<%= javascript_include_tag "highcharts" %>
+<script>
+  var $container    = $("#container")
+  var pointInterval = <%= date_steps.day * 1000 %>;
+  var pointStart    = <%= first_day_ever.to_i * 1000 %>;
+
+  new Highcharts.Chart({
+    chart: {
+      backgroundColor: '#FFEFD5',
+      height: 500,
+      renderTo: 'container'
+    },
+    title: { text: '' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Count' },
+      min: 0
+    },
+    series: [
+    <% StatBoard.models.each do |model| %>
+      {
+        name: "<%= model.to_s.pluralize %>",
+        pointInterval: pointInterval,
+        pointStart: pointStart,
+        data: <%= resources_by_date(model.to_s) %>
+      },
+    <% end %>
+    ]
+  });
+</script>

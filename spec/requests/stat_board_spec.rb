@@ -6,9 +6,15 @@ describe "a user visiting the stat board" do
     page.should have_content("StatBoard")
   end
 
-  it "sees the specified models (post)" do
+  it "sees the specified models (post and user)" do
     visit "/stats"
     page.should have_content("Posts")
+    page.should have_content("Users")
+  end
+
+  it "sees the graph", :js => true do
+    visit "/stats"
+    page.should have_content("Highcharts.com")
   end
 
   describe "with no records" do
