@@ -46,6 +46,8 @@ In `config/initializers/stat_board.rb`:
 
 Happily accepting contributions to improve StatBoard. To contribute, fork, add your thing, add some specs, and send a pleasantly worded pull request.
 
+In order to setup the databases locally, you'll need to: `bundle exec rake db:migrate app:db:test:prepare`
+
 * * *
 
 StatBoard is released under the [MIT License][mit]. See MIT-LICENSE for further details.

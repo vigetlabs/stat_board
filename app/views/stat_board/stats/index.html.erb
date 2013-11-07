@@ -2,6 +2,9 @@
   <div class="row">
     <%= render :partial => "chart", :collection => @reports, :as => :report %>
   </div>
+
+  <%= render "graph" %>
+
 <% else %>
   Please specify some models by setting <code>StatBoard.models</code>
   (in <code>config/initializers/stat_board.rb</code>, for example).

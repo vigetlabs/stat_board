@@ -8,6 +8,8 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+Capybara.javascript_driver = :webkit
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -35,6 +37,24 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.before(:each) do
+    if example.metadata[:js]
+      DatabaseCleaner.strategy = :truncation
+      DatabaseCleaner.clean_with(:truncation)
+    else
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:transaction)
+    end
+
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean       # Truncate the database
+    Capybara.reset_sessions!    # Forget the (simulated) browser state
+    Capybara.use_default_driver # Revert Capybara.current_driver to Capybara.default_driver
+  end
 
   # http://stackoverflow.com/a/12978795
   config.include Capybara::DSL

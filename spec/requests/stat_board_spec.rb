@@ -4,11 +4,17 @@ describe "a user visiting the stat board" do
   it "sees the dashboard" do
     visit "/stats"
     page.should have_content("StatBoard")
-  end  
+  end
 
-  it "sees the specified models (post)" do
+  it "sees the specified models (post and user)" do
     visit "/stats"
     page.should have_content("Posts")
+    page.should have_content("Users")
+  end
+
+  it "sees the graph", :js => true do
+    visit "/stats"
+    page.should have_content("Highcharts.com")
   end
 
   describe "with no records" do
@@ -23,13 +29,13 @@ describe "a user visiting the stat board" do
     end
 
     it "sees that no posts were created this month" do
-      within "div#this-month" do
+      within "div#last-30-days" do
         page.should have_content("0")
       end
     end
 
     it "sees that no posts were created this week" do
-      within "div#this-week" do
+      within "div#last-7-days" do
         page.should have_content("0")
       end
     end
@@ -51,13 +57,13 @@ describe "a user visiting the stat board" do
     end
 
     it "sees that 2 posts were created this month" do
-      within "div#this-month" do
+      within "div#last-30-days" do
         page.should have_content("2")
       end
     end
 
     it "sees that 1 post was created this week" do
-      within "div#this-week" do
+      within "div#last-7-days" do
         page.should have_content("1")
       end
     end
