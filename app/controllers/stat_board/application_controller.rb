@@ -19,7 +19,7 @@ module StatBoard
 
       date_range.step(date_steps).map do |date|
         created_ats.count{|c_a| c_a < date}
-      end.inspect
+      end.to_s
     end
 
     def first_day_of_each_model
