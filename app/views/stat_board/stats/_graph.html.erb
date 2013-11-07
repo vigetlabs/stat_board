@@ -3,7 +3,7 @@
 <%= javascript_include_tag "highcharts" %>
 <script>
   var $container    = $("#container")
-  var pointInterval = <%= date_steps.day * 1000 %>;
+  var pointInterval = <%= date_steps.days * 1000 %>;
   var pointStart    = <%= first_day_ever.to_i * 1000 %>;
 
   new Highcharts.Chart({
