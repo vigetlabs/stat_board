@@ -1,6 +1,8 @@
 StatBoard
 =========
 
+[![Code Climate](https://codeclimate.com/github/vigetlabs/stat_board.png)](https://codeclimate.com/github/vigetlabs/stat_board)
+
 A simple dashboard of records created this week, this month, and all time, mountable as a Rails Engine.
 
 <img src="https://raw.github.com/vigetlabs/stat_board/master/screenshot.png" />
