@@ -37,6 +37,10 @@ In `config/initializers/stat_board.rb`:
         StatBoard.username = "user"
         StatBoard.password = "pass"
 
+3. Displaying Data Graphically (true by default)
+
+        StatBoard.display_graph = true
+
 ## Issues
 
   * Models can be specified as strings rather than constants

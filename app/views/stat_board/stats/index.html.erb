@@ -3,7 +3,9 @@
     <%= render :partial => "chart", :collection => @reports, :as => :report %>
   </div>
 
-  <%= render "graph" %>
+  <% if StatBoard.display_graph %>
+    <%= render "graph" %>
+  <% end %>
 
 <% else %>
   Please specify some models by setting <code>StatBoard.models</code>

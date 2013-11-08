@@ -5,5 +5,8 @@ require "stat_board/reports/monthly_report"
 require "stat_board/reports/weekly_report"
 
 module StatBoard
-  mattr_accessor :models, :title, :username, :password
+  mattr_accessor :models, :title, :display_graph, :username, :password
+
+  # Display graph by default. Can be disabled in initializers/stat_board.rb.
+  @@display_graph = true
 end

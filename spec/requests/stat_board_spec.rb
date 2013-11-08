@@ -12,9 +12,16 @@ describe "a user visiting the stat board" do
     page.should have_content("Users")
   end
 
-  it "sees the graph", :js => true do
+  it "sees the graph if display_graph is set to true", :js => true do
+    StatBoard.display_graph = true
     visit "/stats"
     page.should have_content("Highcharts.com")
+  end
+
+  it "does not see the graph if display_graph is set to false", :js => true do
+    StatBoard.display_graph = false
+    visit "/stats"
+    page.should_not have_content("Highcharts.com")
   end
 
   describe "with no records" do
