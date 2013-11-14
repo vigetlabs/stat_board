@@ -2009,7 +2009,7 @@ table {
 
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #eee;
 }
 
 .table-hover tbody tr:hover td,
