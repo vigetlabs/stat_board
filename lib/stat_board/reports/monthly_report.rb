@@ -1,7 +1,7 @@
 module StatBoard
   module Reports
     class MonthlyReport < Report
-      def name
+      def name(original_date = nil)
         "Last 30 days"
       end
 

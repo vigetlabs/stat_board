@@ -1,7 +1,7 @@
 module StatBoard
   module Reports
     class WeeklyReport < Report
-      def name
+      def name(original_date = nil)
         "Last 7 days"
       end
 

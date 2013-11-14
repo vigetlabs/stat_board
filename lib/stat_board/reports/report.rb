@@ -1,7 +1,7 @@
 module StatBoard
   module Reports
     class Report
-      def name
+      def name(original_date = nil)
         # define in subclass
       end
 
