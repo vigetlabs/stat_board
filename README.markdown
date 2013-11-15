@@ -47,6 +47,8 @@ In `config/initializers/stat_board.rb`:
     if you encounter loading order issues.
   * If you're using the Asset Pipeline, you'll need to add
     `stat_board/bootstrap.css` to your precompile paths.
+  * If you have `config.assets.initialize_on_precompile` set to `false`, then
+    you will need to add `stat_board/highcharts.js` to your precompile paths.
 
 ## Contributing
 
