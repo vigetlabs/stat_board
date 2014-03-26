@@ -51,7 +51,7 @@ GEM
     childprocess (0.5.1)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.0)
-    database_cleaner (0.9.1)
+    database_cleaner (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     ffi (1.9.3)
@@ -143,11 +143,13 @@ DEPENDENCIES
   appraisal
   capybara (~> 1.1.4)
   capybara-webkit (~> 0.13.0)
-  database_cleaner (~> 0.9.1)
+  database_cleaner
   jquery-rails
   launchy
+  minitest
   pry
   rails (~> 4.0.4)
+  rake
   rspec-rails
   sqlite3
   stat_board!

@@ -1,4 +1,5 @@
 #!/usr/bin/env rake
+puts ENV['BUNDLE_GEMFILE'].inspect
 begin
   require 'bundler/setup'
   require 'appraisal'

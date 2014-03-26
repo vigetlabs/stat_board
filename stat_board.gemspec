@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "launchy"
   s.add_development_dependency "capybara",         "~> 1.1.4"
   s.add_development_dependency "capybara-webkit",  "~> 0.13.0"
-  s.add_development_dependency "database_cleaner", "~> 0.9.1"
+  s.add_development_dependency "database_cleaner"
   s.add_development_dependency 'appraisal'
+  s.add_development_dependency 'rake'
 end

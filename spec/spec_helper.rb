@@ -1,4 +1,5 @@
 ENV["RAILS_ENV"] ||= 'test'
+puts ENV['BUNDLE_GEMFILE'].inspect
 
 require File.expand_path("../../spec/dummy/config/environment", __FILE__)
 require 'rspec/rails'
@@ -8,6 +9,9 @@ require 'capybara/rspec'
 require "capybara/webkit"
 require 'database_cleaner'
 
+puts Bundler.default_gemfile
+puts ENV['BUNDLE_GEMFILE'].inspect
+
 Rails.backtrace_cleaner.remove_silencers!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -15,6 +19,8 @@ Rails.backtrace_cleaner.remove_silencers!
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 Capybara.javascript_driver = :webkit
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -43,18 +49,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-
-  config.before(:each) do
-    if example.metadata[:js]
-      DatabaseCleaner.strategy = :truncation
-      DatabaseCleaner.clean_with(:truncation)
-    else
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:transaction)
-    end
-
-    DatabaseCleaner.start
-  end
 
   config.after(:each) do
     DatabaseCleaner.clean       # Truncate the database
