@@ -8,6 +8,8 @@ require 'capybara/rspec'
 require "capybara/webkit"
 require 'database_cleaner'
 
+Rails.backtrace_cleaner.remove_silencers!
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
