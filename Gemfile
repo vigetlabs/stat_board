@@ -12,9 +12,3 @@ gem "jquery-rails"
 # your gemspec. These might include edge Rails or gems from your path or
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
-
-gem "pry"
-gem "launchy"
-gem "capybara",         "~> 1.1.4"
-gem "capybara-webkit",  "~> 0.13.0"
-gem "database_cleaner", "~> 0.9.1"
