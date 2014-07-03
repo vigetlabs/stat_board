@@ -13,16 +13,21 @@ A simple dashboard of records created this week, this month, and all time, mount
 
         gem 'stat_board'
 
-2. Mount engine (in `config/routes.rb`):
+2. Add initializer and route:
 
-        YourApp::Application.routes.draw do
-          mount StatBoard::Engine, :at => "/stats"
+        rails g stat_board:install
 
 3. Configure models (in `config/initializers/stat_board.rb`):
 
         StatBoard.models = [User, Post, Comment]
 
 Models can also be listed as strings if you encounter any loading order issues.
+
+## Routing
+
+You can access StatBoard like this:
+
+    stat_board.root_url
 
 ## Additonal Configuration
 
