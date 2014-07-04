@@ -5,11 +5,7 @@ module StatBoard
     before_filter :basic_authenticate, :if => lambda { StatBoard.username && StatBoard.password }
 
     def index
-      @reports = [
-        Reports::OverallReport.new,
-        Reports::MonthlyReport.new,
-        Reports::WeeklyReport.new
-      ]
+      @reports = ReportsFinder.all
     end
 
     private

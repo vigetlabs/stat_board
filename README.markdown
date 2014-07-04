@@ -41,6 +41,23 @@ In `config/initializers/stat_board.rb`:
 
         StatBoard.display_graph = true
 
+4. You may provide your own reports, just place they into `lib/stat_board/reports`. Name of report should be `*_report.rb`. For example:
+
+        # lib/stat_board/reports/day_report.rb
+        module StatBoard
+          module Reports
+            class DayReport < Report
+              def name(original_date = nil)
+                "Last day"
+              end
+
+              def scope(model)
+                super.where(["created_at > ?", 1.day.ago])
+              end
+            end
+          end
+        end
+
 ## Issues
 
   * Models can be specified as strings rather than constants
