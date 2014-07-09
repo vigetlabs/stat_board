@@ -1,12 +1,13 @@
 <% if StatBoard.models %>
-  <div class="row">
-    <%= render :partial => "chart", :collection => @reports, :as => :report %>
-  </div>
+  <% cache "stat_board", expires_in: StatBoard.cache_lifetime do %>
+    <div class="row">
+      <%= render :partial => "chart", :collection => @reports, :as => :report %>
+    </div>
 
-  <% if StatBoard.display_graph %>
-    <%= render "graph" %>
+    <% if StatBoard.display_graph %>
+      <%= render "graph" %>
+    <% end %>
   <% end %>
-
 <% else %>
   Please specify some models by setting <code>StatBoard.models</code>
   (in <code>config/initializers/stat_board.rb</code>, for example).

@@ -46,6 +46,10 @@ In `config/initializers/stat_board.rb`:
 
         StatBoard.display_graph = true
 
+4. Data cache lifetime (1 hour by default)
+
+        StatBoard.cache_lifetime = 1.day
+
 ## Issues
 
   * Models can be specified as strings rather than constants
