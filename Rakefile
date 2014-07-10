@@ -1,8 +1,7 @@
 #!/usr/bin/env rake
-puts ENV['BUNDLE_GEMFILE'].inspect
 begin
   require 'bundler/setup'
-  require 'appraisal'
+  require 'wwtd/tasks'
 rescue LoadError
   puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
@@ -31,4 +30,4 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
 
-task :default => :spec
+task :default => "wwtd:local"
