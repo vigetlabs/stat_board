@@ -83,3 +83,11 @@ In order to setup the databases locally, you'll need to: `bundle exec rake db:mi
 StatBoard is released under the [MIT License][mit]. See MIT-LICENSE for further details.
 
 [mit]: http://www.opensource.org/licenses/MIT
+
+***
+
+<a href="http://code.viget.com">
+  <img src="http://code.viget.com/github-banner.png" alt="Code At Viget">
+</a>
+
+Visit [code.viget.com](http://code.viget.com) to see more projects from [Viget.](https://viget.com)
