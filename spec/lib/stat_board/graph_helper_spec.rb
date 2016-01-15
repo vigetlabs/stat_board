@@ -3,6 +3,10 @@ require 'spec_helper'
 describe StatBoard::GraphHelper do
   subject { described_class.new }
 
+  before do
+    StatBoard.models = %w(Post User)
+  end
+
   describe "#date_steps" do
     it "returns 1 if date_range has less than 50 days" do
       subject.stub(:first_day_ever).and_return(Time.now - 20.days)

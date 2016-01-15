@@ -17,15 +17,15 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.markdown"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", ">= 3.2.0"
+  s.add_dependency "rails", ">= 3.2.18"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "pry"
   s.add_development_dependency "launchy"
-  s.add_development_dependency "capybara",         "~> 1.1.4"
-  s.add_development_dependency "capybara-webkit",  "~> 0.13.0"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "capybara-webkit"
   s.add_development_dependency "database_cleaner"
-  s.add_development_dependency 'appraisal'
-  s.add_development_dependency 'rake'
+  s.add_development_dependency "wwtd"
+  s.add_development_dependency "rake"
 end

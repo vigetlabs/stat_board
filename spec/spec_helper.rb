@@ -1,5 +1,4 @@
 ENV["RAILS_ENV"] ||= 'test'
-puts ENV['BUNDLE_GEMFILE'].inspect
 
 require File.expand_path("../../spec/dummy/config/environment", __FILE__)
 require 'rspec/rails'
@@ -8,9 +7,6 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require "capybara/webkit"
 require 'database_cleaner'
-
-puts Bundler.default_gemfile
-puts ENV['BUNDLE_GEMFILE'].inspect
 
 Rails.backtrace_cleaner.remove_silencers!
 
