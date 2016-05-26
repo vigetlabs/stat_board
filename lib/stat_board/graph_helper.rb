@@ -16,16 +16,17 @@ module StatBoard
       klass       = klass_name.to_s.constantize
       created_ats = klass.order(:created_at).pluck(:created_at).compact
       steps       = date_range.step(date_steps).map(&:end_of_day)
+      index       = 0
       counts      = created_ats.reduce(Hash.new(0)) do |counts, timestamp|
-        cutoff = steps[counts[:index]]
+        cutoff = steps[index]
 
         # As long as timestamps have not exceeded the last date step
         if cutoff.present?
           if timestamp < cutoff
             counts[cutoff] += 1
           else
-            new_index            = counts[:index] += 1
-            next_cutoff          = steps[new_index]
+            index               += 1
+            next_cutoff          = steps[index]
             counts[next_cutoff] += (counts[cutoff] + 1) if next_cutoff.present?
           end
         end
@@ -33,7 +34,6 @@ module StatBoard
         counts
       end
 
-      counts.delete(:index)
       counts.values.to_s
     end
 
