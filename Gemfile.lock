@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stat_board (0.1.7)
+    stat_board (0.1.10)
       rails (>= 3.2.0)
 
 GEM
@@ -24,7 +24,7 @@ GEM
       activerecord-deprecated_finders (~> 1.0.2)
       activesupport (= 4.0.4)
       arel (~> 4.0.0)
-    activerecord-deprecated_finders (1.0.3)
+    activerecord-deprecated_finders (1.0.4)
     activesupport (4.0.4)
       i18n (~> 0.6, >= 0.6.9)
       minitest (~> 4.2)
@@ -73,7 +73,7 @@ GEM
     multi_json (1.9.2)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    polyglot (0.3.4)
+    polyglot (0.3.5)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -114,7 +114,7 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0.4)
     slop (3.5.0)
-    sprockets (2.12.0)
+    sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
@@ -152,3 +152,6 @@ DEPENDENCIES
   rspec-rails
   sqlite3
   stat_board!
+
+BUNDLED WITH
+   1.11.2
