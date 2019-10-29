@@ -2,7 +2,7 @@ require_dependency "stat_board/application_controller"
 
 module StatBoard
   class StatsController < ApplicationController
-    before_filter :basic_authenticate, :if => lambda { StatBoard.username && StatBoard.password }
+    before_action :basic_authenticate, :if => lambda { StatBoard.username && StatBoard.password }
 
     def index
       @reports = ReportsFinder.all
