@@ -2,16 +2,10 @@
 
 <%= javascript_include_tag "stat_board/highcharts" %>
 <script>
-  var $container    = $("#container")
   var pointInterval = <%= date_steps.days * 1000 %>;
   var pointStart    = <%= first_day_ever.to_i * 1000 %>;
 
-  new Highcharts.Chart({
-    chart: {
-      backgroundColor: '#eee',
-      height: 500,
-      renderTo: 'container'
-    },
+  Highcharts.chart('container', {
     title: { text: '' },
     xAxis: { type: 'datetime' },
     yAxis: {

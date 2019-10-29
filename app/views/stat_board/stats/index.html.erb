@@ -1,11 +1,11 @@
 <% if StatBoard.models %>
-  <div class="row">
-    <%= render :partial => "chart", :collection => @reports, :as => :report %>
-  </div>
-
   <% if StatBoard.display_graph %>
     <%= render "graph" %>
   <% end %>
+
+  <div class="row">
+    <%= render :partial => "chart", :collection => @reports, :as => :report %>
+  </div>
 
 <% else %>
   Please specify some models by setting <code>StatBoard.models</code>
