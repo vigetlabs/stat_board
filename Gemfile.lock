@@ -54,7 +54,7 @@ GEM
     database_cleaner (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    ffi (1.9.3)
+    ffi (1.11.1)
     hike (1.2.3)
     i18n (0.6.9)
     jquery-rails (3.1.0)
