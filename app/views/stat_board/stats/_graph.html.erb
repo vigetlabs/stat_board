@@ -10,7 +10,7 @@
     xAxis: { type: 'datetime' },
     yAxis: {
       title: { text: 'Count' },
-      min: 0
+      min: <%= StatBoard.models.map { |model| resources_by_date(model.to_s) }.map(&:first).min %>
     },
     series: [
     <% StatBoard.models.each do |model| %>
@@ -18,7 +18,7 @@
         name: "<%= model.to_s.pluralize %>",
         pointInterval: pointInterval,
         pointStart: pointStart,
-        data: <%= resources_by_date(model.to_s) %>
+        data: <%= resources_by_date(model.to_s).to_s %>
       },
     <% end %>
     ]

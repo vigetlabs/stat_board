@@ -10,12 +10,15 @@ module StatBoard
     # a string of the array of the count of (klass) objects
     # along the date_range, on every displayed interval
     def resources_by_date(klass_name)
-      klass = klass_name.to_s.constantize
-      steps = date_range.step(date_steps).map(&:end_of_day)
+      @resrouces_cache ||= {}
+      @resrouces_cache[klass_name] ||= begin
+        klass = klass_name.to_s.constantize
+        steps = date_range.step(date_steps).map(&:end_of_day)
 
-      steps.map do |step_end|
-        klass.where("created_at <= ?", step_end).count
-      end.to_s
+        steps.map do |step_end|
+          klass.where("created_at <= ?", step_end).count
+        end
+      end
     end
 
     # number of days per interval on the graph's x axis
