@@ -1,3 +1,14 @@
+.statboard-filter form {
+  display: flex;
+  margin: 20px auto;
+  width: 500px;
+}
+
+.statboard-filter form input {
+  margin: 0 10px;
+}
+
+
 /*!
  * Bootstrap v2.2.1
  *

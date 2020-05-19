@@ -3,7 +3,7 @@
 <%= javascript_include_tag "stat_board/highcharts" %>
 <script>
   var pointInterval = <%= date_steps.days * 1000 %>;
-  var pointStart    = <%= first_day_ever.to_i * 1000 %>;
+  var pointStart    = <%= start_at.to_time.to_i * 1000 %>;
 
   Highcharts.chart('container', {
     title: { text: '' },

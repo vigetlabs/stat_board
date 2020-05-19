@@ -1,35 +1,19 @@
 require 'spec_helper'
 
 describe StatBoard::GraphHelper do
-  subject { described_class.new }
+  subject { described_class.new(100.years.ago, Date.today) }
 
   describe "#date_steps" do
     it "returns 1 if date_range has less than 50 days" do
-      subject.stub(:first_day_ever).and_return(Time.now - 20.days)
+      subject.stub(:start_at).and_return(Time.now - 20.days)
 
       subject.date_steps.should == 1
     end
 
     it "returns 2 if date_range has 100 days in it (100 / 50)" do
-      subject.stub(:first_day_ever).and_return(Time.now - 100.days)
+      subject.stub(:start_at).and_return(Time.now - 100.days)
 
       subject.date_steps.should == 2
-    end
-  end
-
-  describe "#first_day_ever" do
-    it "returns today if there are no records" do
-      subject.first_day_ever.to_date.should == Date.today
-    end
-
-    it "returns the earlist created_at of any model" do
-      user = User.create
-      post = Post.create
-
-      user.update_attribute(:created_at, Time.now - 14.days)
-      post.update_attribute(:created_at, Time.now - 7.days)
-
-      subject.first_day_ever.to_date.should == Date.today - 14.days
     end
   end
 

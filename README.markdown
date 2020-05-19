@@ -52,7 +52,7 @@ In `config/initializers/stat_board.rb`:
         module StatBoard
           module Reports
             class DayReport < Report
-              def name(original_date = nil)
+              def name
                 "Last day"
               end
 

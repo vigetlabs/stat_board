@@ -3,6 +3,16 @@
     <%= render "graph" %>
   <% end %>
 
+  <div class="statboard-filter">
+    <%= form_for :stats, method: :get do |f| %>
+      <%= f.date_field :start_at, value: start_at %>
+      <%= f.date_field :end_at, value: end_at %>
+
+      <%= f.submit "Filter", class: "btn btn-primary" %>
+      <%= link_to "Clear", {}, class: "btn" %>
+    <% end %>
+  </div>
+
   <div class="row">
     <%= render :partial => "chart", :collection => @reports, :as => :report %>
   </div>

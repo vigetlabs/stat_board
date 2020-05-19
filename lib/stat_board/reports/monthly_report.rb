@@ -1,12 +1,12 @@
 module StatBoard
   module Reports
     class MonthlyReport < Report
-      def name(original_date = nil)
+      def name
         "Last 30 days"
       end
 
       def scope(model)
-        super.where(["created_at > ?", 30.days.ago])
+        super.where(["created_at > ? AND created_at < ?", end_date - 30.days, end_date + 1.day])
       end
     end
   end
