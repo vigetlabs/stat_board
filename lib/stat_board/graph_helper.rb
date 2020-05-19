@@ -13,28 +13,12 @@ module StatBoard
     # a string of the array of the count of (klass) objects
     # along the date_range, on every displayed interval
     def resources_by_date(klass_name)
-      klass       = klass_name.to_s.constantize
-      created_ats = klass.order(:created_at).pluck(:created_at).compact
-      steps       = date_range.step(date_steps).map(&:end_of_day)
-      index       = 0
-      counts      = created_ats.reduce(Hash.new(0)) do |counts, timestamp|
-        cutoff = steps[index]
+      klass = klass_name.to_s.constantize
+      steps = date_range.step(date_steps).map(&:end_of_day)
 
-        # As long as timestamps have not exceeded the last date step
-        if cutoff.present?
-          if timestamp < cutoff
-            counts[cutoff] += 1
-          else
-            index               += 1
-            next_cutoff          = steps[index]
-            counts[next_cutoff] += (counts[cutoff] + 1) if next_cutoff.present?
-          end
-        end
-
-        counts
-      end
-
-      counts.values.to_s
+      steps.map do |step_end|
+        klass.where("created_at <= ?", step_end).count
+      end.to_s
     end
 
     private
