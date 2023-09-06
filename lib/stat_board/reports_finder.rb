@@ -7,8 +7,22 @@ module StatBoard
     end
 
     def self.all
-      self.new(File.join(StatBoard::Engine.root, "lib/stat_board/reports")).report_klasses +
-      self.new(File.join(Rails.root, "lib/stat_board/reports")).report_klasses
+      all_klasses = (
+        self.new(File.join(StatBoard::Engine.root, "lib/stat_board/reports")).report_klasses +
+        self.new(File.join(Rails.root, "lib/stat_board/reports")).report_klasses
+      )
+
+      all_klasses.sort_by do |klass|
+        if klass.name.include?("::Overall")
+          1
+        elsif klass.name.include?("::Monthly")
+          2
+        elsif klass.name.include?("::Weekly")
+          3
+        else
+          4
+        end
+      end
     end
   end
 end
