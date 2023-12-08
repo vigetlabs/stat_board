@@ -13,6 +13,7 @@ module StatBoard
       @resrouces_cache ||= {}
       @resrouces_cache[klass_name] ||= begin
         klass = klass_name.to_s.constantize
+        klass = klass.stat_board_scope if klass.respond_to?(:stat_board_scope)
         steps = date_range.step(date_steps).map(&:end_of_day)
 
         steps.map do |step_end|
